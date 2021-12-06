@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const exemple = ['bonjour', "hello henry", "coucou"]
+
+
+        function getFirstChar(stringTest) {
+            for (i = 0; i < stringTest.length; i++) {
+                let strWithoutLetter = stringTest.slice(0, i) + stringTest.slice(i + 1);
+                if (strWithoutLetter.includes(stringTest.charAt(i)) === false) {
+                    return stringTest.charAt(i)
+                }
+            }
+            return null
+        }
+
+        console.log(`${exemple[0]} = ${getFirstChar(exemple[0])}, ${exemple[1]} = ${getFirstChar(exemple[1])}, ${exemple[2]} = ${getFirstChar(exemple[2])}`)
+    </script>
+</body>
+
+</html>

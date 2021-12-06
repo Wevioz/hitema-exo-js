@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const exemples = [['a', 'b', 'c', 'd'], []]
+
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * max);
+        }
+
+        function selectRandom(array) {
+            result = array[getRandomInt(array.length)];
+            if (result === undefined) {
+                throw new TypeError('array not valid')
+            }
+            return result
+
+        }
+
+        console.log(selectRandom(exemples[0]))
+        try {
+            console.log(selectRandom(exemples[1]))
+        } catch (error) {
+            console.log(error)
+        }
+        try {
+            console.log(selectRandom(""))
+        } catch (error) {
+            console.log(error)
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const exemples = [{firstArray:["a","b"],secondArray:['c',"d"]},{firstArray:["a","b"],secondArray:['a',"d"]},{firstArray:["a","b","a"],secondArray:['a',"d","b","a"]}]
+
+        function concatArrays(firstArray, secondArray) {
+            return new Set(firstArray.concat(secondArray))
+        }
+        console.log( concatArrays(exemples[0].firstArray,exemples[0].secondArray) )
+        console.log( concatArrays(exemples[1].firstArray,exemples[1].secondArray))
+        console.log( concatArrays(exemples[2].firstArray,exemples[2].secondArray))
+    </script>
+</body>
+
+</html>
