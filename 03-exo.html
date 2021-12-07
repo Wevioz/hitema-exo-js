@@ -10,14 +10,28 @@
 
 <body>
     <script>
-        const exemples = [{firstArray:["a","b"],secondArray:['c',"d"]},{firstArray:["a","b"],secondArray:['a',"d"]},{firstArray:["a","b","a"],secondArray:['a',"d","b","a"]}]
+        $first = [["a","b"],['c',"d"]]
+        $second = [["a","b"],['a',"d"]]
+        $third = [["a","b","a"],['a',"d","b","a"]]
 
-        function concatArrays(firstArray, secondArray) {
-            return new Set(firstArray.concat(secondArray))
+        function concatenateArray(array1, array2) {
+            return unique(array1.concat(array2))
         }
-        console.log( concatArrays(exemples[0].firstArray,exemples[0].secondArray) )
-        console.log( concatArrays(exemples[1].firstArray,exemples[1].secondArray))
-        console.log( concatArrays(exemples[2].firstArray,exemples[2].secondArray))
+
+        function unique(array) {
+            var a = array.concat();
+            for(var i=0; i<a.length; ++i) {
+                for(var j=i+1; j<a.length; ++j) {
+                    if(a[i] === a[j])
+                        a.splice(j--, 1);
+                }
+            }
+
+            return a;
+        };
+        console.log(concatenateArray($first[0], $first[1]))
+        console.log(concatenateArray($second[0], $second[1]))
+        console.log(concatenateArray($third[0], $third[1]))
     </script>
 </body>
 

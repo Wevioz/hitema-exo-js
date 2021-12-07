@@ -10,13 +10,16 @@
 
 <body>
     <script>
-        const exemples = [{ str: 'bonjour', char1: "o", char2: "O" }, { str: "hello les amis", char1: "o", char2: "z" }]
+        const tests = [['bonjour', "o", "O"], ["hello les amis", "o", "z"]]
 
-        function findNbrOccurence(strTest, charTest) {
-            return strTest.toLowerCase().split(charTest.toLowerCase()).length - 1
+        function countNumberOfOccurences(string, char) {
+            string = string.toLowerCase();
+            char = char.toLowerCase();
+
+            return string.split(char).length - 1
         }
-        console.log( findNbrOccurence(exemples[0].str,exemples[0].char1) + " " + findNbrOccurence(exemples[0].str,exemples[0].char2))
-        console.log( findNbrOccurence(exemples[1].str,exemples[1].char1) + " " + findNbrOccurence(exemples[1].str,exemples[1].char2))
+        console.log(`${countNumberOfOccurences(tests[0][0],tests[0][1])} ${countNumberOfOccurences(tests[0][0],tests[0][2])}`)
+        console.log(`${countNumberOfOccurences(tests[1][0],tests[1][1])} ${countNumberOfOccurences(tests[1][0],tests[1][2])}`)
     </script>
 </body>
 

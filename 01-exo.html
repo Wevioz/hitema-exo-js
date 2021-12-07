@@ -10,20 +10,18 @@
 
 <body>
     <script>
-        const exemple = ['bonjour', "hello henry", "coucou"]
+        const tests = ['bonjour', "hello henry", "coucou"]
 
 
-        function getFirstChar(stringTest) {
-            for (i = 0; i < stringTest.length; i++) {
-                let strWithoutLetter = stringTest.slice(0, i) + stringTest.slice(i + 1);
-                if (strWithoutLetter.includes(stringTest.charAt(i)) === false) {
-                    return stringTest.charAt(i)
-                }
+        function firstNonRepeatedChar(string) {
+            for (var i = 0; i < string.length; i++) {
+                var char = string.charAt(i);
+                if (string.indexOf(char) == i && string.indexOf(char, i + 1) == -1) return char;
             }
-            return null
+            return null;
         }
 
-        console.log(`${exemple[0]} = ${getFirstChar(exemple[0])}, ${exemple[1]} = ${getFirstChar(exemple[1])}, ${exemple[2]} = ${getFirstChar(exemple[2])}`)
+        console.log(`${tests[0]} = ${firstNonRepeatedChar(tests[0])}, ${tests[1]} = ${firstNonRepeatedChar(tests[1])}, ${tests[2]} = ${firstNonRepeatedChar(tests[2])}`)
     </script>
 </body>
 

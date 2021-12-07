@@ -10,31 +10,21 @@
 
 <body>
     <script>
-        const exemples = [['a', 'b', 'c', 'd'], []]
+        const tests = [['a', 'b', 'c', 'd'], [], ""]
 
-        function getRandomInt(max) {
-            return Math.floor(Math.random() * max);
+        function getRandomFromArray(myArray) {
+            if(!Array.isArray(myArray) || myArray.length < 1) throw('Le paramètre est incorrect');
+            return myArray[Math.floor(Math.random() * myArray.length)]
         }
 
-        function selectRandom(array) {
-            result = array[getRandomInt(array.length)];
-            if (result === undefined) {
-                throw new TypeError('array not valid')
+        
+
+        for(let i in tests) {
+            try {
+                console.log(getRandomFromArray(tests[i]))
+            } catch (error) {
+                console.log(error)
             }
-            return result
-
-        }
-
-        console.log(selectRandom(exemples[0]))
-        try {
-            console.log(selectRandom(exemples[1]))
-        } catch (error) {
-            console.log(error)
-        }
-        try {
-            console.log(selectRandom(""))
-        } catch (error) {
-            console.log(error)
         }
     </script>
 </body>
