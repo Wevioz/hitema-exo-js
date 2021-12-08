@@ -29,23 +29,26 @@
             { id: 5, contenu: "lorem 5", id_article: 1 },
         ]
         const data = articles.map(article => {
-            return  {
-                    id : article.id,
-                    titre : article.titre,
-                    like : article.like,
-                    auteurs : auteurs.find( auteur => { 
-                            return article.id_auteur == auteur.id }
-                    ),
-                    commentaires : commentaires.filter( commentaire => { 
-                            return article.id === commentaire.id_article }
-                    )
-
-                }
-
+            let auteur = auteurs.find(auteur => {
+                return article.id_auteur == auteur.id
+            });
+            return {
+                id: article.id,
+                titre: article.titre,
+                like: article.like,
+                auteur: auteur,
+                commentaires: commentaires.filter(commentaire => {
+                    if (commentaire.id_article === article.id) {
+                        if (auteur.isActif === true) delete commentaire.id_article;
+                        return commentaire;
+                    }
+                })
+            }
         })
 
 
         console.log(data);
+
     </script>
 </body>
 
